@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { data } from './data';
+import { NewData } from './data';
 import { Project } from './types';
+// Using NewData format with content array and registration details
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays } from "lucide-react";
-import { MdCircle } from "react-icons/md";
 import { Inter,Khand,Poppins } from 'next/font/google'
 import Link from 'next/link';
+import CourseDetails from './CourseDetails';
 const poppins = Poppins({
    subsets: ['latin'],
    weight: ['400']
@@ -47,80 +47,14 @@ export default function Projects(): JSX.Element {
   }, []); 
 
   const renderProjectContent = (project: Project): JSX.Element => (
-    <div className="mb-4 bg-[#202020]  p-6 rounded-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-      {/* Project Code Badge */}
-      <div className="absolute top-0 right-0 sm:block md:hidden pb-4">
-        <Badge
-          variant="secondary"
-          className="h-6 pt-2 pb-2 bg-[#4a4a4a] text-sm text-white border-none shrink-0"
-        >
-          Project {project.projectCode}
-        </Badge>
-      </div>
-
-      {/* Project Code Badge for larger screens */}
-      <div className="hidden md:block absolute top-0 right-0">
-        <Badge
-          variant="secondary"
-          className="h-6 pt-2 pb-2 bg-[#4a4a4a] text-sm text-white border-none shrink-0"
-        >
-          Project {project.projectCode}
-        </Badge>
-      </div>
-
-      {/* Project Title */}
-      <h2 className="text-xl md:text-xl font-bold tracking-tight text-[#ff0000] whitespace-pre-wrap">
-        {project.title}
-      </h2>
-
-      {/* Project Description */}
-      <p className="text-xs pl-6 md:text-base text-white leading-relaxed">
-        {project.description}
-      </p>
-      <div className='w-full h-[2px] mt-2 bg-white'/>
-
-      {/* Project Sections */}
-      <div className="space-y-2">
-        {project.sections.map((section, idx) => (
-          <div key={idx} className="text-white">
-            <div className="flex space-x-3">
-              <MdCircle
-                className="text-[#ff0000] flex-shrink-0"
-                size={8}
-                style={{ marginTop: '18px' }}
-              />
-              <div className="flex-1">
-                <h3 className="text-sm md:text-sm font-bold text-[#ff0000] mt-2">
-                  {section.heading}
-                </h3>
-                <p className={`text-xs md:text-xs text-gray-200 leading-relaxed ${poppins.className}`}>
-                  {section.content.split('|').map((item, i) => (
-                    <span key={i} className="inline-block">
-                      {item.trim()}
-                      {i < section.content.split('|').length - 1 && (
-                        <span className="mx-2 text-gray-500">|</span>
-                      )}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="flex mt-4 justify-center py-0">
-        <Link href="/application-form">
-            <Button
-              size="lg"
-              className={`${data.button.className} hover:bg-[#e00000] transform transition-all duration-300 hover:scale-105 px-8 py-3  shadow-lg hover:shadow-xl`}
-              aria-label={data.button.text}
-            >
-              {data.button.text}
-            </Button>
-            </Link>
-          </div>
-    </div>
+    <CourseDetails
+      title={project.title}
+      description={project.description}
+      content={project.content}
+      registerLink={project.registerLink}
+      originalPrice={project.originalPrice}
+      price={project.price}
+    />
   );
 
   const renderImageContent = (project: Project): JSX.Element => (
@@ -153,39 +87,28 @@ export default function Projects(): JSX.Element {
           transition: 'opacity 0.5s ease-out, transform 0.5s ease-out'
         }}
       >
-        {/* Mobile View (Image always on top) */}
-        {/* todo hide this renderImage in mobile  */}
-        {/* <div className="md:hidden w-full">
-          {renderImageContent(project)}
-        </div> */}
 
-        {/* Desktop View (Alternating layout) */}
         {isEven ? (
           <>
             <div className="hidden md:block md:sticky md:top-0 self-start md:h-[calc(100vh-80px)] flex items-start">
+              {/* for render image pass the image from newData */}
               {renderImageContent(project)}
             </div>
             <div className="flex flex-col space-y-4">
-              {renderProjectContent(project)}
-            
+              {renderProjectContent(project)} 
+            {/* todo want to display CourseDetails in place of renderProjectContent */}
             </div>
           </>
         ) : (
           <>
             <div className="flex flex-col space-y-6">
+              {/* for render image pass the image from newData */}
               {renderProjectContent(project)}
-              {/* <div className="flex justify-center py-0">
-            <Button
-              size="lg"
-              className={`${data.button.className} hover:bg-[#e00000] transform transition-all duration-300 hover:scale-105 px-8 py-3  shadow-lg hover:shadow-xl`}
-              aria-label={data.button.text}
-            >
-              {data.button.text}
-            </Button>
-          </div> */}
+           
             </div>
             <div className="hidden md:block md:sticky md:top-0 self-start md:h-[calc(100vh-80px)] flex items-start">
-              {renderImageContent(project)}
+          
+            {renderImageContent(project)}
             </div>
           </>
         )}
@@ -213,18 +136,10 @@ export default function Projects(): JSX.Element {
         <div className="container mx-auto max-w-6xl px-4 pt-4">
           {/* Projects Section */}
           <div className="space-y-8">
-            {data.projects.map((project, index) => renderProject(project, index))}
+            {NewData.projects.map((project, index) => renderProject(project, index))}
           </div>
 
-          {/* <div className="flex justify-center py-12">
-            <Button
-              size="lg"
-              className={`${data.button.className} hover:bg-[#e00000] transform transition-all duration-300 hover:scale-105 px-8 py-3 rounded-full shadow-lg hover:shadow-xl`}
-              aria-label={data.button.text}
-            >
-              {data.button.text}
-            </Button>
-          </div> */}
+         
         </div>
 
         <style jsx global>{`

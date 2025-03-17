@@ -38,6 +38,9 @@ import SupportContact from "@/components/customComponents/Support/Support";
 // import MobileGallery from "@/components/customComponents/Gallery/MobileGallery";
 import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 // import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
+
+
+import DisplayCourseContent from "@/components/customComponents/Moules/DisplayCourseContent"
 export default function Home() {
   return (
     <div >

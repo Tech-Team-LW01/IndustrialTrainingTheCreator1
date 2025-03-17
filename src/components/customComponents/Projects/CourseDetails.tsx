@@ -1,0 +1,61 @@
+import { Zap } from "lucide-react"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+
+interface CourseDetailsProps {
+  title: string;
+  description: string;
+  content: string[];
+  registerLink: string;
+  originalPrice: string;
+  price: string;
+}
+
+export default function CourseDetails({
+  title,
+  description,
+  content,
+  registerLink,
+  originalPrice,
+  price,
+}: CourseDetailsProps) {
+  return (
+    <Card className="bg-pink-50 border-none shadow-sm max-w-3xl">
+      <CardHeader className="pb-2">
+        <div className="flex items-center gap-2">
+          <Zap className="h-5 w-5 text-orange-500" />
+          <span className="font-medium text-xl">{title}</span>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <p className="text-gray-700">{description}</p>
+
+        <div className="flex flex-wrap gap-2">
+          {content.map((item, index) => (
+            <Button
+              key={index}
+              variant="secondary"
+              className="bg-pink-200 hover:bg-pink-300 border-none text-gray-800"
+            >
+              {item}
+            </Button>
+          ))}
+        </div>
+
+        <div className="mt-6 space-y-2">
+          <div className="flex items-center gap-2">
+            <span className="text-gray-500 line-through">₹{originalPrice}</span>
+            <span className="text-2xl font-bold text-red-600">₹{price}</span>
+          </div>
+          <Button
+            className="w-full bg-red-600 hover:bg-red-700 text-white"
+            onClick={() => window.open(registerLink, '_blank')}
+          >
+            Register Now
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
