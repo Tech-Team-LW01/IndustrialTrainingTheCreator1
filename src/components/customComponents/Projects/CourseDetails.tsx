@@ -42,18 +42,20 @@ export default function CourseDetails({
           ))}
         </div>
 
-        <div className="mt-6 space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="text-gray-500 line-through">₹{originalPrice}</span>
-            <span className="text-2xl font-bold text-red-600">₹{price}</span>
-          </div>
-          <Button
-            className="w-full bg-red-600 hover:bg-red-700 text-white"
-            onClick={() => window.open(registerLink, '_blank')}
-          >
-            Register Now
-          </Button>
-        </div>
+        <div className="pt-2 space-y-2">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <span>in just </span><span className="text-gray-500 line-through">₹{originalPrice}</span>
+      <span className="text-2xl font-bold text-red-600">₹{price} +Taxes</span>
+    </div>
+    <Button
+      className="w-1/3 bg-red-600 hover:bg-red-700 text-white"
+      onClick={() => window.open(registerLink, '_blank')}
+    >
+      Register Now
+    </Button>
+  </div>
+</div>
       </CardContent>
     </Card>
   )
