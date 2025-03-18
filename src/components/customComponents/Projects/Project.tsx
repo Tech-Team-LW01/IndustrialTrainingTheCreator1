@@ -29,7 +29,7 @@ const khandFont = Khand({
   weight: ['700']
 });
 
-export default function gitiProjects(): JSX.Element {
+export default function GitiProjects(): JSX.Element {
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
