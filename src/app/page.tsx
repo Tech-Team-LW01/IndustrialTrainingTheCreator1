@@ -48,7 +48,7 @@ export default function Home() {
 
 <Hero2></Hero2>
 <TechStack/>
-<RecapPreviousYear />
+{/* <RecapPreviousYear /> */}
 
 <Mentor/>
 <MentorScroll/>
@@ -62,10 +62,10 @@ export default function Home() {
 <Benifits/>
 <Timeline/>
 <OutCome/>
-<JazbaaStartupPlatform/>
+{/* <JazbaaStartupPlatform/> */}
 
-<OutComeGallary/>
-<InvestorCarousel/>
+{/* <OutComeGallary/> */}
+{/* <InvestorCarousel/> */}
 <JazbaaTimeLine/>
 <LeftRightAlumniCarousel/>
 <VideoTestimonials/>
