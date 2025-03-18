@@ -36,8 +36,8 @@ export const NewData = {
 "Amazon Forecast"
       ],
       registerLink: "https://rzp.io/rzp/tN0AHIT",
-      originalPrice: "8000",
-      price: "5500",
+      originalPrice: "8,000",
+      price: "5,500",
       projectCode: "LW-PSI-SP-100"
     },
     {
@@ -66,8 +66,8 @@ export const NewData = {
 "Multi-Threading And Socket Programming",
 "Python Object-Oriented Programming ",],
       registerLink: "https://rzp.io/rzp/OHIOmeR ",
-      originalPrice: "8000",
-      price: "5500",
+      originalPrice: "8,000",
+      price: "5,500",
       projectCode: "LW-PSI-SP-101"
     },
     {
@@ -109,8 +109,8 @@ export const NewData = {
        
       ],
       registerLink: "https://rzp.io/rzp/7bVgfUe",
-      originalPrice: "8000",
-      price: "5500 ",
+      originalPrice: "8,000",
+      price: "5,500 ",
       projectCode: "LW-PSI-SP-100"
     },
 
