@@ -17,7 +17,7 @@ const khandFont = Khand({
   weight: ['700']
 })
 
-export default function Projects(): JSX.Element {
+export default function gitiProjects(): JSX.Element {
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,14 +58,14 @@ export default function Projects(): JSX.Element {
   );
 
   const renderImageContent = (project: Project): JSX.Element => (
-    <div className="w-full max-w-[400px] mx-auto md:pt-24 lg:pt-24 pt-0">
+    <div className="w-full max-w-[400px] mx-auto md:pt-24 lg:pt-24 pt-0 ">
       <div className="relative group">
         <Image
           src={project.image.src}
           alt={project.image.alt}
           width={project.image.width}
           height={project.image.height}
-          className={`${project.image.className} transition-transform duration-300 group-hover:scale-105 bg-white`}
+          className={`${project.image.className}  transition-transform duration-300 group-hover:scale-105 bg-white`}
           priority={project.image.priority}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -90,7 +90,7 @@ export default function Projects(): JSX.Element {
 
         {isEven ? (
           <>
-            <div className="hidden md:block md:sticky md:top-0 self-start md:h-[calc(100vh-80px)] flex items-start">
+            <div className="hidden md:block sticky md:top-0 self-start md:h-[calc(100vh-80px)] flex items-start">
               {/* for render image pass the image from newData */}
               {renderImageContent(project)}
             </div>
@@ -106,7 +106,7 @@ export default function Projects(): JSX.Element {
               {renderProjectContent(project)}
            
             </div>
-            <div className="hidden md:block md:sticky md:top-0 self-start md:h-[calc(100vh-80px)] flex items-start">
+            <div className="hidden md:block sticky md:top-0 self-start md:h-[calc(100vh-80px)] flex items-start">
           
             {renderImageContent(project)}
             </div>
