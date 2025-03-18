@@ -35,9 +35,9 @@ export const NewData = {
 "Amazon Translate",
 "Amazon Forecast"
       ],
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/tN0AHIT",
+      originalPrice: "8000",
+      price: "5500",
       projectCode: "LW-PSI-SP-100"
     },
     {
@@ -58,18 +58,16 @@ export const NewData = {
 "Python Data Structures",
 "Arithmetic Operations and Operators",
 "Regular Expressions",
-"AWS CLOUD COMPUTING",
 "Control Structures: Conditional Statements and Loops",
 "Functions and Arguments",
 "Working with Files and Directories",
 "Python Modules and Packages",
 "Exception Handling",
-"PYTHON PROGRAMMING",
 "Multi-Threading And Socket Programming",
 "Python Object-Oriented Programming ",],
-      registerLink: "https://example.com/devops-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/OHIOmeR ",
+      originalPrice: "8000",
+      price: "5500",
       projectCode: "LW-PSI-SP-101"
     },
     {
@@ -110,9 +108,9 @@ export const NewData = {
         "MySQL",
        
       ],
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/7bVgfUe",
+      originalPrice: "8000",
+      price: "5500 ",
       projectCode: "LW-PSI-SP-100"
     },
 
@@ -151,9 +149,9 @@ export const NewData = {
 "Hyperparameter Tuning",
 "Optimization",
       ],
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/NV4dSzP",
+      originalPrice: "8,000",
+      price: "5,500 ",
       projectCode: "LW-PSI-SP-100"
     },
    
@@ -189,9 +187,9 @@ export const NewData = {
         "Code Organization and Structure",
         "Error Handling"
       ],
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/iADTiZcf ",
+      originalPrice: "10,000",
+      price: "6,500",
       projectCode: "LW-PSI-SP-100"
     },
     {
@@ -211,7 +209,6 @@ export const NewData = {
         "Keras",
         "Pandas",
         "Deep Learning",
-        "MERN STACK DEVELOPMENT",
         "Reinforcement Learning",
         "Numpy",
         "Classification",
@@ -221,7 +218,6 @@ export const NewData = {
         "Feature Engineering",
         "CNN",
         "Traditional Machine Learning Techniques",
-        "GENERATIVE AI MACHINE LEARNING",
         "Computer Vision",
         "NLP",
         "Preprocessing Data",
@@ -232,33 +228,11 @@ export const NewData = {
         "Optimization",
         "Generative AI and its Applications",
         "Generative Models",
-        "GENERATIVE AI",
-        "MACHINE LEARNING (CONT)",
         "Discriminative Models",
         "Generative Adversarial Networks (GANs)",
         "Variational Autoencoders (VAEs)",
-        "Pre-trained ML Models"
-    ],
-    
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
-      projectCode: "LW-PSI-SP-100"
-    },
-    {
-      title: "7. GENERATIVE AI + MACHINE LEARNING (CONT...)",
-      description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
-      image: {
-        src: "",
-        alt: "Cloud Computing Project",
-        width: 400,
-        height: 400,
-        className: "rounded-[32px] h-auto w-auto object-contain",
-        priority: true,
-      },
-      content: [
+        "Pre-trained ML Models",
         "Data Preprocessing in Generative AI Workflows",
-        "FULL STACK MACHINE LEARNING",
         "Feature Extractors",
         "Transfer Learning Techniques",
         "Integrating ML with Generative AI",
@@ -266,16 +240,17 @@ export const NewData = {
         "PyTorch",
         "Conditional Generation",
         "Controlling Generative Models",
-        "CLOUD COMPUTING FULL STACK WEB DEVELOPMENT",
         "Image Synthesis Techniques"
     ],
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+    
+      registerLink: "https://rzp.io/rzp/P38nPnDN ",
+      originalPrice: "13,000",
+      price: "8,500",
       projectCode: "LW-PSI-SP-100"
     },
+   
     {
-      title: "8. FULL STACK + MACHINE LEARNING",
+      title: "7. FULL STACK + MACHINE LEARNING",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
         src: "",
@@ -290,11 +265,9 @@ export const NewData = {
         "Applied Statistics",
         "Supervised Learning - Multiple Variable Linear Regression",
         "Unsupervised Learning - K-means Clustering",
-        "FULL STACK+ MACHINE LEARNING",
         "Ensemble Techniques - Decision Trees",
         "Featurization, Model Selection & Tuning - Feature Engineering",
         "Recommendation Systems - Introduction to Recommendation Systems",
-        "CLOUD COMPUTING FULL STACK WEB DEVELOPMENT",
         "Web Development Concepts",
         "HTML",
         "CSS",
@@ -307,13 +280,13 @@ export const NewData = {
         "MySQL"
     ],
     
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/lNBx1DEx ",
+      originalPrice: "14,000",
+      price: "8,500 ",
       projectCode: "LW-PSI-SP-100"
     },
     {
-      title: "9. CLOUD COMPUTING + FULL STACK WEB DEVELOPMENT",
+      title: "8. CLOUD COMPUTING + FULL STACK WEB DEVELOPMENT",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
         src: "",
@@ -334,7 +307,6 @@ export const NewData = {
         "Git and GitHub",
         "Flask",
         "MySQL",
-        "FULL STACK MACHINE LEARNING",
         "AWS CLI",
         "Snapshot",
         "AWS Global Network",
@@ -347,44 +319,25 @@ export const NewData = {
         "Virtual Private Cloud",
         "AWS Serverless",
         "AWS Load Balancer Service",
-        "CLOUD COMPUTING FULL STACK WEB DEVELOPMENT",
         "Monitoring & Scaling",
         "Access Management",
         "AMI",
         "NFS",
         "Networking",
         "Security & Automation",
-        "Amazon Rekognition"
-    ],
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
-      projectCode: "LW-PSI-SP-100"
-    },
-    {
-      title: "10. CLOUD COMPUTING + FULL STACK WEB DEVELOPMENT (CONT...)",
-      description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
-      image: {
-        src: "",
-        alt: "Cloud Computing Project",
-        width: 400,
-        height: 400,
-        className: "rounded-[32px] h-auto w-auto object-contain",
-        priority: true,
-      },
-      content: [
+        "Amazon Rekognition",
         "Introduction to AWS AI Services",
         "Amazon Transcribe",
         "Amazon Translate",
         "Amazon Comprehend",
         "Amazon Forecast"
     ],
-    
-      registerLink: "https://example.com/cloud-project",
-      originalPrice: "70000",
-      price: "5000",
+      registerLink: "https://rzp.io/rzp/PECaeig",
+      originalPrice: "14,000",
+      price: "8,500 ",
       projectCode: "LW-PSI-SP-100"
     },
+   
   ]
 };
 
