@@ -4,7 +4,7 @@ export const NewData = {
       title: "1. AWS CLOUD COMPUTING",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -44,7 +44,7 @@ export const NewData = {
       title: "2.PYTHON PROGRAMMING",
       description: "Develop High-End Next Generation End to End DevOps Pipeline Managed Service in High Performance Cloud Computing Platform.",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "DevOps Project",
         width: 400,
         height: 400,
@@ -74,7 +74,7 @@ export const NewData = {
       title: "3. PYTHON FULL STACK WEB DEVELOPMENT",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -118,7 +118,7 @@ export const NewData = {
       title: "4. MACHINE LEARNING - AI",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -159,7 +159,7 @@ export const NewData = {
       title: "5. MERN STACK DEVELOPMENT",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -196,7 +196,7 @@ export const NewData = {
       title: "6. GENERATIVE AI + MACHINE LEARNING",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -253,7 +253,7 @@ export const NewData = {
       title: "7. FULL STACK + MACHINE LEARNING",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -289,7 +289,7 @@ export const NewData = {
       title: "8. CLOUD COMPUTING + FULL STACK WEB DEVELOPMENT",
       description: "Develop Serverless Cloud Computing Using Container for Cloud-Native Applications to simplify development, deployment & management",
       image: {
-        src: "",
+        src: "/assets/Projects/101.gif",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,

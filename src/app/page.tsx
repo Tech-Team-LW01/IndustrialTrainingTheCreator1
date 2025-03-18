@@ -61,7 +61,7 @@ export default function Home() {
 <BentoGallery/>
 <Benifits/>
 <Timeline/>
-<OutCome/>
+{/* <OutCome/> */}
 {/* <JazbaaStartupPlatform/> */}
 
 {/* <OutComeGallary/> */}
