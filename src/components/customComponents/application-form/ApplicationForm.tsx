@@ -26,7 +26,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const currentYear = new Date().getFullYear();
+const currentYear = 2000;
 const maxYear = currentYear + 6;
 
 const formSchema = z.object({
@@ -231,7 +231,7 @@ export function ApplicationForm() {
             name="branch"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Which Degree you Pursuing? *</FormLabel>
+                <FormLabel>Your Degree *</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="Enter your degree (e.g., B.Tech, MCA)" 
@@ -254,7 +254,7 @@ export function ApplicationForm() {
                 <FormControl>
                   <Input 
                     type="number"
-                    placeholder={`Enter your passing year (${currentYear}-${maxYear})`}
+                    placeholder={`Enter your passing year..`}
                     {...field}
                     min={currentYear}
                     max={maxYear}
