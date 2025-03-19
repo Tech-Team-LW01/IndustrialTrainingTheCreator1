@@ -290,13 +290,15 @@ export function ApplicationForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="cloud">Cloud Computing</SelectItem>
-                    <SelectItem value="fullstack">FullStack Development</SelectItem>
-                    <SelectItem value="ml">Machine Learning(AI)</SelectItem>
-                    <SelectItem value="genai">Generative AI Ops</SelectItem>
-                    <SelectItem value="clouddevops">Cloud + DevOps</SelectItem>
-                    <SelectItem value="mldevops">ML + DevOps</SelectItem>
-                    <SelectItem value="others">Others</SelectItem>
+                    <SelectItem value="cloud">AWS CLOUD COMPUTING</SelectItem>
+                    <SelectItem value="fullstack">PYTHON PROGRAMMING</SelectItem>
+                    <SelectItem value="ml"> PYTHON FULL STACK WEB DEVELOPMENT</SelectItem>
+                    <SelectItem value="genai">MACHINE LEARNING - AI</SelectItem>
+                    <SelectItem value="clouddevops"> MERN STACK DEVELOPMENT</SelectItem>
+                    <SelectItem value="mldevops"> GENERATIVE AI + MACHINE LEARNING</SelectItem>
+                    <SelectItem value="fullStackMachineLearning">FULL STACK + MACHINE LEARNING</SelectItem>
+                    <SelectItem value="CloudComputingAndFullStack"> CLOUD COMPUTING + FULL STACK WEB DEVELOPMENT</SelectItem>
+                    <SelectItem value="others"> OTHERS</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
