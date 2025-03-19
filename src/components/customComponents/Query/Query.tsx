@@ -282,6 +282,7 @@ export default function QueryForm() {
                 backgroundColor: 'rgba(0,0,0,0.6)'
               }}
             >
+              
               <div className="text-center text-white">
                 <h2 className="text-3xl font-bold mb-4">
                   {formVariant === 'offline' 
@@ -290,8 +291,8 @@ export default function QueryForm() {
                 </h2>
                 <p className="mb-6">
                   {formVariant === 'offline'
-                    ? "Join our offline summer program and collaborate with engineering students across India!"
-                    : "Can't attend offline? Our online program keeps you connected!"}
+                    ? "I am looking for Offline Summer Industrial Training where I can meet Engineering students from across India & work together as a team 😊"
+                    : "I know I will miss all the Offline Benefits of Summer Program & attend JAZBAA but still want to attend Online Training 😔"}
                 </p>
                 <Button 
                   onClick={toggleFormVariant}
