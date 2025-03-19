@@ -27,7 +27,7 @@ import { Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const currentYear = 2000;
-const maxYear = currentYear + 6;
+const maxYear = 2030;
 
 const formSchema = z.object({
   fullName: z.string().min(2, {

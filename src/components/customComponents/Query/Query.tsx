@@ -1,245 +1,3 @@
-// "use client";
-
-// import { useState } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Facebook, Linkedin, Loader2 } from "lucide-react";
-// import toast, { Toaster } from 'react-hot-toast';
-// import { Inter, Poppins } from 'next/font/google';
-
-// const poppins = Poppins({
-//    subsets: ['latin'],
-//    weight: ['400']
-// });
-
-// import localFont from "next/font/local";
-// const khandFont = localFont({
-//     src: '../../../app/fonts/Khand-SemiBold.woff',
-//     weight: '100 900',
-// });
-
-// interface FormData {
-//   fullName: string;
-//   email: string;
-//   phone: string;
-//   query: string;
-//   college: string;
-// }
-
-// const initialFormData: FormData = {
-//   fullName: "",
-//   email: "",
-//   phone: "",
-//   query: "",
-//   college: ""
-// };
-
-// export default function Query() {
-//   const [isSwapped, setIsSwapped] = useState(false);
-//   const [isSignInForm, setIsSignInForm] = useState(true);
-//   const [loading, setLoading] = useState(false);
-//   const [formData, setFormData] = useState<FormData>(initialFormData);
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     const { name, value } = e.target;
-//     setFormData(prev => ({
-//       ...prev,
-//       [name]: value
-//     }));
-//   };
-
-//   const validateForm = () => {
-//     if (!formData.fullName.trim()) {
-//       toast.error("Please enter your full name");
-//       return false;
-//     }
-//     if (!formData.college.trim()) {
-//       toast.error("Please enter your college name");
-//       return false;
-//     }
-//     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
-//       toast.error("Please enter a valid email address");
-//       return false;
-//     }
-//     if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone)) {
-//       toast.error("Please enter a valid 10-digit phone number");
-//       return false;
-//     }
-//     if (!formData.query.trim()) {
-//       toast.error("Please enter your query");
-//       return false;
-//     }
-//     return true;
-//   };
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     if (!validateForm()) return;
-    
-//     setLoading(true);
-    
-//     try {
-//       const response = await fetch('/api/contact', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(formData),
-//       });
-      
-//       const data = await response.json();
-      
-//       if (response.ok) {
-//         toast.success("Query submitted successfully!");
-//         setFormData(initialFormData);
-//       } else {
-//         toast.error(data.message || "Something went wrong!");
-//       }
-//     } catch (error) {
-//       toast.error("Failed to submit query");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleSwap = () => {
-//     setIsSwapped(!isSwapped);
-//     setIsSignInForm(!isSignInForm);
-//   };
-
-//   // Form component to avoid duplication
-//   const FormContent = () => (
-//     <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-//       <Input 
-//         type="text" 
-//         name="fullName"
-//         placeholder="Full Name" 
-//         value={formData.fullName}
-//         onChange={handleChange}
-//         className="bg-gray-50" 
-//         disabled={loading}
-//       />
-//       <Input 
-//         type="email" 
-//         name="email"
-//         placeholder="Email" 
-//         value={formData.email}
-//         onChange={handleChange}
-//         className="bg-gray-50"
-//         disabled={loading}
-//       />
-//       <Input 
-//         type="tel" 
-//         name="phone"
-//         placeholder="Phone" 
-//         value={formData.phone}
-//         onChange={handleChange}
-//         className="bg-gray-50"
-//         disabled={loading}
-//         maxLength={10}
-//       />
-//       <Input 
-//         type="text" 
-//         name="college"
-//         placeholder="College Name" 
-//         value={formData.college}
-//         onChange={handleChange}
-//         className="bg-gray-50"
-//         disabled={loading}
-//       />
-//       <Input 
-//         type="text" 
-//         name="query"
-//         placeholder="Query" 
-//         value={formData.query}
-//         onChange={handleChange}
-//         className="bg-gray-50 min-h-[100px]"
-//         disabled={loading}
-//       />
-//       <Button
-//         type="submit"
-//         className="w-full bg-[#ff0000] hover:bg-[#6f6f6f] text-white"
-//         disabled={loading}
-//       >
-//         {loading ? (
-//           <>
-//             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-//             Submitting...
-//           </>
-//         ) : (
-//           'Submit'
-//         )}
-//       </Button>
-//     </form>
-//   );
-
-//   return (
-//     <div className="min-h-screen w-full bg-black p-4 sm:p-6 flex flex-col items-center justify-center" id="query">
-//       <h1 className={`text-3xl md:text-4xl font-bold text-[#ff0000] mb-2 text-center ${khandFont.className}`}>
-//         Lets Talk
-//       </h1>
-
-//       <h1 className={`text-lg md:text-3xl text-white mb-4 sm:mb-8 text-center px-4 ${poppins.className}`}>
-//         Our Summer Executive will connect in next 24 hours
-//       </h1>
-
-//       <Toaster position="top-center" reverseOrder={false} />
-
-//       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
-//         <div className="relative w-full h-full">
-//           <AnimatePresence mode="wait">
-//             <motion.div
-//               key={isSignInForm ? "form" : "welcome"}
-//               initial={{ opacity: 0, x: isSignInForm ? -100 : 100 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               exit={{ opacity: 0, x: isSignInForm ? 100 : -100 }}
-//               transition={{ duration: 0.3 }}
-//               className="w-full"
-//             >
-//               <div className="flex flex-col lg:flex-row">
-//                 {/* Form Section */}
-//                 <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-16">
-//                   <FormContent />
-//                 </div>
-
-//                 {/* Welcome Panel */}
-//                 <div 
-//                   className="w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat min-h-[400px]"
-//                   style={{
-//                     backgroundImage: "url('/assets/Projects/form.jpg')"
-//                   }}
-//                 >
-//                   <div className="text-center">
-//                     <h2 className={`text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white ${khandFont.className}`}>
-//                       Hello, Friend!
-//                     </h2>
-//                     <p className={`mb-6 sm:mb-8 text-base sm:text-lg text-white ${poppins.className}`}>
-//                       {isSignInForm 
-//                         ? "I am looking for Offline Summer Industrial Training where I can meet Engineering students from across India & work together as a team 😊" 
-//                         : "I know I will miss all the Offline Benefits of Summer Program & attend JAZBAA but still want to attend Online Training 😔"}
-//                     </p>
-//                     <Button
-//                       variant="outline"
-//                       className="border-2 border-white bg-[#ff0000] text-white hover:bg-white/10 text-sm sm:text-base"
-//                       onClick={handleSwap}
-//                     >
-//                       {isSignInForm 
-//                         ? "No, I am looking for Online Summer Program" 
-//                         : "No, I think I should attend Offline Summer Program"}
-//                     </Button>
-//                   </div>
-//                 </div>
-//               </div>
-//             </motion.div>
-//           </AnimatePresence>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 
 
 
@@ -258,7 +16,13 @@
 
 "use client";
 
-import { useState, useCallback } from "react";
+import React, { 
+  useState, 
+  useCallback, 
+  useRef, 
+  FormEvent, 
+  ChangeEvent 
+} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -266,9 +30,10 @@ import { Loader2 } from "lucide-react";
 import toast, { Toaster } from 'react-hot-toast';
 import { Poppins } from 'next/font/google';
 
+// Font configurations
 const poppins = Poppins({
    subsets: ['latin'],
-   weight: ['400']
+   weight: ['400', '600']
 });
 
 import localFont from "next/font/local";
@@ -277,6 +42,7 @@ const khandFont = localFont({
     weight: '100 900',
 });
 
+// Form data interface
 interface FormData {
   fullName: string;
   email: string;
@@ -285,7 +51,8 @@ interface FormData {
   college: string;
 }
 
-const initialFormData: FormData = {
+// Initial form state
+const INITIAL_FORM_STATE: FormData = {
   fullName: "",
   email: "",
   phone: "",
@@ -293,202 +60,250 @@ const initialFormData: FormData = {
   college: ""
 };
 
-export default function Query() {
-  const [isSwapped, setIsSwapped] = useState(false);
+export default function QueryForm() {
+  // State management
+  const [formData, setFormData] = useState<FormData>(INITIAL_FORM_STATE);
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formVariant, setFormVariant] = useState<'offline' | 'online'>('offline');
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  // Refs for input fields
+  const inputRefs = {
+    fullName: useRef<HTMLInputElement>(null),
+    email: useRef<HTMLInputElement>(null),
+    phone: useRef<HTMLInputElement>(null),
+    college: useRef<HTMLInputElement>(null),
+    query: useRef<HTMLInputElement>(null)
+  };
+
+  // Input change handler with improved type safety
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    
+    // Special handling for phone number (only digits)
+    if (name === 'phone') {
+      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({
+        ...prev,
+        [name]: numericValue
+      }));
+      return;
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   }, []);
 
-  const validateForm = () => {
+  // Form validation with detailed error handling
+  const validateForm = (): boolean => {
+    const errors: { [key: string]: string } = {};
+
+    // Full Name validation
     if (!formData.fullName.trim()) {
-      toast.error("Please enter your full name");
-      return false;
+      errors.fullName = "Full Name is required";
+      inputRefs.fullName.current?.focus();
     }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+      inputRefs.email.current?.focus();
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid email format";
+      inputRefs.email.current?.focus();
+    }
+
+    // Phone validation
+    const phoneRegex = /^\d{10}$/;
+    if (!formData.phone.trim()) {
+      errors.phone = "Phone number is required";
+      inputRefs.phone.current?.focus();
+    } else if (!phoneRegex.test(formData.phone)) {
+      errors.phone = "Phone number must be 10 digits";
+      inputRefs.phone.current?.focus();
+    }
+
+    // College validation
     if (!formData.college.trim()) {
-      toast.error("Please enter your college name");
-      return false;
+      errors.college = "College name is required";
+      inputRefs.college.current?.focus();
     }
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
-      toast.error("Please enter a valid email address");
-      return false;
-    }
-    if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone)) {
-      toast.error("Please enter a valid 10-digit phone number");
-      return false;
-    }
+
+    // Query validation
     if (!formData.query.trim()) {
-      toast.error("Please enter your query");
-      return false;
+      errors.query = "Query is required";
+      inputRefs.query.current?.focus();
     }
-    return true;
+
+    // Display errors
+    Object.values(errors).forEach(error => toast.error(error));
+
+    return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Form submission handler
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Validate form before submission
     if (!validateForm()) return;
-    
+
+    // Set loading state
     setLoading(true);
-    
+
     try {
+      // API call to submit form
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          formType: formVariant
+        }),
       });
       
-      const data = await response.json();
+      const result = await response.json();
       
+      // Handle response
       if (response.ok) {
         toast.success("Query submitted successfully!");
-        setFormData(initialFormData);
+        // Reset form
+        setFormData(INITIAL_FORM_STATE);
       } else {
-        toast.error(data.message || "Something went wrong!");
+        toast.error(result.message || "Submission failed");
       }
     } catch (error) {
-      toast.error("Failed to submit query");
+      toast.error("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSwap = () => {
-    setIsSwapped(!isSwapped);
+  // Toggle form variant
+  const toggleFormVariant = () => {
+    setFormVariant(prev => prev === 'offline' ? 'online' : 'offline');
   };
 
-  // Form component to avoid duplication
-  const FormContent = () => (
-    <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-      <Input 
-        type="text" 
-        name="fullName"
-        placeholder="Full Name" 
-        value={formData.fullName}
-        onChange={handleChange}
-        className="bg-gray-50" 
-        disabled={loading}
-      />
-      <Input 
-        type="email" 
-        name="email"
-        placeholder="Email" 
-        value={formData.email}
-        onChange={handleChange}
-        className="bg-gray-50"
-        disabled={loading}
-      />
-      <Input 
-        type="tel" 
-        name="phone"
-        placeholder="Phone" 
-        value={formData.phone}
-        onChange={handleChange}
-        className="bg-gray-50"
-        disabled={loading}
-        maxLength={10}
-      />
-      <Input 
-        type="text" 
-        name="college"
-        placeholder="College Name" 
-        value={formData.college}
-        onChange={handleChange}
-        className="bg-gray-50"
-        disabled={loading}
-      />
-      <Input 
-        type="text" 
-        name="query"
-        placeholder="Query" 
-        value={formData.query}
-        onChange={handleChange}
-        className="bg-gray-50 min-h-[100px]"
-        disabled={loading}
-      />
-      <Button
-        type="submit"
-        className="w-full bg-[#ff0000] hover:bg-[#6f6f6f] text-white"
-        disabled={loading}
-      >
-        {loading ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Submitting...
-          </>
-        ) : (
-          'Submit'
-        )}
-      </Button>
-    </form>
-  );
-
   return (
-    <div className="min-h-screen w-full bg-black p-4 sm:p-6 flex flex-col items-center justify-center" id="query">
-      <h1 className={`text-3xl md:text-4xl font-bold text-[#ff0000] mb-2 text-center ${khandFont.className}`}>
-        Lets Talk
-      </h1>
-
-      <h1 className={`text-lg md:text-3xl text-white mb-4 sm:mb-8 text-center px-4 ${poppins.className}`}>
-        Our Summer Executive will connect in next 24 hours
-      </h1>
-
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Toaster position="top-center" reverseOrder={false} />
-
-      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
-        <div className="relative w-full h-full">
-          <AnimatePresence mode="wait">
-            <motion.div
-              initial={{ opacity: 0, x: isSwapped ? -100 : 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: isSwapped ? 100 : -100 }}
-              transition={{ duration: 0.3 }}
-              className="w-full"
-            >
-              <div className="flex flex-col lg:flex-row">
-                {/* Form Section */}
-                <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-16">
-                  <FormContent />
-                </div>
-
-                {/* Welcome Panel */}
-                <div 
-                  className="w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat min-h-[400px]"
-                  style={{
-                    backgroundImage: "url('/assets/Projects/form.jpg')"
-                  }}
+      
+      <div className="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={formVariant}
+            initial={{ opacity: 0, x: formVariant === 'offline' ? -100 : 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: formVariant === 'offline' ? 100 : -100 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col lg:flex-row"
+          >
+            {/* Form Section */}
+            <div className="w-full lg:w-1/2 p-6 lg:p-12">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <Input
+                  ref={inputRefs.fullName}
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  className="w-full"
+                />
+                <Input
+                  ref={inputRefs.email}
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  className="w-full"
+                />
+                <Input
+                  ref={inputRefs.phone}
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  maxLength={10}
+                  className="w-full"
+                />
+                <Input
+                  ref={inputRefs.college}
+                  type="text"
+                  name="college"
+                  placeholder="College Name"
+                  value={formData.college}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  className="w-full"
+                />
+                <Input
+                  ref={inputRefs.query}
+                  type="text"
+                  name="query"
+                  placeholder="Your Query"
+                  value={formData.query}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  className="w-full min-h-[100px]"
+                />
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="w-full bg-red-600 hover:bg-red-700 text-white"
                 >
-                  <div className="text-center">
-                    <h2 className={`text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white ${khandFont.className}`}>
-                      Hello, Friend!
-                    </h2>
-                    <p className={`mb-6 sm:mb-8 text-base sm:text-lg text-white ${poppins.className}`}>
-                      {isSwapped 
-                        ? "I know I will miss all the Offline Benefits of Summer Program & attend JAZBAA but still want to attend Online Training 😔"
-                        : "I am looking for Offline Summer Industrial Training where I can meet Engineering students from across India & work together as a team 😊"}
-                    </p>
-                    <Button
-                      variant="outline"
-                      className="border-2 border-white bg-[#ff0000] text-white hover:bg-white/10 text-sm sm:text-base"
-                      onClick={handleSwap}
-                    >
-                      {isSwapped 
-                        ? "No, I think I should attend Offline Summer Program"
-                        : "No, I am looking for Online Summer Program"}
-                    </Button>
-                  </div>
-                </div>
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Submit Query'
+                  )}
+                </Button>
+              </form>
+            </div>
+
+            {/* Variant Toggle Section */}
+            <div 
+              className="w-full lg:w-1/2 bg-cover bg-center flex items-center justify-center p-8"
+              style={{
+                backgroundImage: `url('/assets/Projects/form.jpg')`,
+                backgroundBlendMode: 'overlay',
+                backgroundColor: 'rgba(0,0,0,0.6)'
+              }}
+            >
+              <div className="text-center text-white">
+                <h2 className="text-3xl font-bold mb-4">
+                  {formVariant === 'offline' 
+                    ? 'Offline Summer Industrial Training Program' 
+                    : 'Online Summer Industrial Training Program'}
+                </h2>
+                <p className="mb-6">
+                  {formVariant === 'offline'
+                    ? "Join our offline summer program and collaborate with engineering students across India!"
+                    : "Can't attend offline? Our online program keeps you connected!"}
+                </p>
+                <Button 
+                  onClick={toggleFormVariant}
+                  variant="outline"
+                  className="border-white text-black hover:bg-white/20"
+                >
+                  Switch to {formVariant === 'offline' ? 'Online' : 'Offline'} Program
+                </Button>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
