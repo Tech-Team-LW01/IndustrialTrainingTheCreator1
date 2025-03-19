@@ -94,7 +94,7 @@ export default function GitiProjects(): JSX.Element {
       <div
         ref={(el) => { projectRefs.current[index] = el }}
         key={index}
-        className="grid grid-cols-1 md:grid-cols-2 gap-2  md:py-4 py-1 opacity-0 transform translate-y-4 transition-all duration-500 ease-out"
+        className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:py-4 md:py-4 py-1 opacity-0 transform translate-y-4 transition-all duration-500 ease-out"
         style={{
           opacity: 0,
           transform: 'translateY(20px)',
