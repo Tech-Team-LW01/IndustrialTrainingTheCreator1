@@ -40,6 +40,7 @@ export const NewData = {
       price: "5,500",
       projectCode: "LW-PSI-SP-100"
     },
+    
     {
       title: "2. PYTHON PROGRAMMING",
       description: "Develop High-End Next Generation End to End DevOps Pipeline Managed Service in High Performance Cloud Computing Platform.",

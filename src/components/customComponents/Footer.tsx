@@ -6,7 +6,7 @@ export default function Footer() {
   const [hoveredWord, setHoveredWord] = useState<string | null>(null)
 
   return ( 
-    <div className='bg-black max-w-7xl p-0 m-0 overflow-clip'>
+    <div className='bg-black max-w-7xl mx-auto p-0 m-0 overflow-clip'>
       <div className="py-12 md:py-8 lg:py-12 max-w-full mx-auto px-2 flex items-center justify-center">
         <div className="text-center w-full">
           <h1 className="text-[80px] sm:text-[60px] md:text-[120px] lg:text-[180px] leading-[0.85] font-bold tracking-tighter cursor-default"> 

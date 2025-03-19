@@ -33,29 +33,29 @@ export async function POST(req: Request) {
 
     // Send email to admin
     await transporter.sendMail({
-      from: `"Summer Program" <${process.env.SMTP_USER}>`,
+      from: `"Industrial Training program Program" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
-      subject: `New Summer Program Application - ${formData.fullName}`,
+      subject: `New Industrial Training Program Application - ${formData.fullName}`,
       html: getApplicationEmailTemplate(formData),
     });
 
     // Send confirmation email to applicant
     await transporter.sendMail({
-      from: `"Summer Program" <${process.env.SMTP_USER}>`,
+      from: `"Summer Industrial Training Program" <${process.env.SMTP_USER}>`,
       to: formData.emailAddress,
-      subject: 'Application Received - Summer Program',
+      subject: 'Application Received - Summer Industrial Training Program',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h2 style="color: #dc2626;">Thank You for Your Application</h2>
           <p>Dear ${formData.fullName},</p>
-          <p>We have received your application for the Summer Program. Our team will review your application and get back to you soon.</p>
+          <p>We have received your application for the Summer Industrial Training Program. Our team will review your application and get back to you soon.</p>
           <p>Application Details:</p>
           <ul>
             <li>Program: ${formData.applyingFor === 'others' ? formData.otherSpecification : formData.applyingFor}</li>
             <li>Tentative Dates: ${formData.tentativeDates}</li>
           </ul>
           <p>If you have any questions, feel free to contact us.</p>
-          <p>Best regards,<br>Summer Program Team</p>
+          <p>Best regards,<br>Summer Industrial Training Program Team</p>
         </div>
       `,
     });
@@ -63,9 +63,9 @@ export async function POST(req: Request) {
     // send email to preet mam 
 
     await transporter.sendMail({
-      from: `"Summer Program" <${process.env.SMTP_USER}>`,
+      from: `"Summer Industrial Training Program" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
-      subject: 'Application Received - Summer Program',
+      subject: 'Application Received - Summer Industrial Training Program',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h2 style="color: #dc2626;">New Application Received</h2>

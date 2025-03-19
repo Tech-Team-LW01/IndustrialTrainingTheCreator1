@@ -26,7 +26,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const currentYear = new Date().getFullYear();
+const currentYear = 2000;
 const maxYear = currentYear + 6;
 
 const formSchema = z.object({
@@ -140,9 +140,9 @@ export function ApplicationForm() {
       <Toaster position="top-center" reverseOrder={false} />
       
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-red-600">Summer Application Form</h1>
+        <h1 className="text-2xl font-bold text-red-600">Summer Industrial Training Application Form</h1>
         <p className="text-sm text-red-600">
-          BECOME A PART OF ONE & ONLY RESEARCH BASED THE SUMMER PROGRAM OF INDIA
+          BECOME A PART OF ONE & ONLY RESEARCH BASED THE SUMMER INDUSTRIAL TRAINING PROGRAM OF INDIA
         </p>
       </div>
 
@@ -231,7 +231,7 @@ export function ApplicationForm() {
             name="branch"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Which Degree you Pursuing? *</FormLabel>
+                <FormLabel>Your Degree *</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="Enter your degree (e.g., B.Tech, MCA)" 
@@ -254,7 +254,7 @@ export function ApplicationForm() {
                 <FormControl>
                   <Input 
                     type="number"
-                    placeholder={`Enter your passing year (${currentYear}-${maxYear})`}
+                    placeholder={`Enter your passing year..`}
                     {...field}
                     min={currentYear}
                     max={maxYear}
@@ -290,13 +290,15 @@ export function ApplicationForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="cloud">Cloud Computing</SelectItem>
-                    <SelectItem value="fullstack">FullStack Development</SelectItem>
-                    <SelectItem value="ml">Machine Learning(AI)</SelectItem>
-                    <SelectItem value="genai">Generative AI Ops</SelectItem>
-                    <SelectItem value="clouddevops">Cloud + DevOps</SelectItem>
-                    <SelectItem value="mldevops">ML + DevOps</SelectItem>
-                    <SelectItem value="others">Others</SelectItem>
+                    <SelectItem value="cloud">AWS CLOUD COMPUTING</SelectItem>
+                    <SelectItem value="fullstack">PYTHON PROGRAMMING</SelectItem>
+                    <SelectItem value="ml"> PYTHON FULL STACK WEB DEVELOPMENT</SelectItem>
+                    <SelectItem value="genai">MACHINE LEARNING - AI</SelectItem>
+                    <SelectItem value="clouddevops"> MERN STACK DEVELOPMENT</SelectItem>
+                    <SelectItem value="mldevops"> GENERATIVE AI + MACHINE LEARNING</SelectItem>
+                    <SelectItem value="fullStackMachineLearning">FULL STACK + MACHINE LEARNING</SelectItem>
+                    <SelectItem value="CloudComputingAndFullStack"> CLOUD COMPUTING + FULL STACK WEB DEVELOPMENT</SelectItem>
+                    <SelectItem value="others"> OTHERS</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
