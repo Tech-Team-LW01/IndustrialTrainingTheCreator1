@@ -42,7 +42,7 @@ export const NewData = {
     },
     
     {
-      title: "2.PYTHON PROGRAMMING",
+      title: "2. PYTHON PROGRAMMING",
       description: "Develop High-End Next Generation End to End DevOps Pipeline Managed Service in High Performance Cloud Computing Platform.",
       image: {
         src: "/assets/Projects/101.gif",

@@ -59,7 +59,9 @@ export default function GitiProjects(): JSX.Element {
   }, []);
 
   const renderProjectContent = (project: Project): JSX.Element => (
+    
     <CourseDetails
+    
       title={project.title}
       description={project.description}
       content={project.content}

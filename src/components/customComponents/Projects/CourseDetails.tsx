@@ -24,7 +24,7 @@ export default function CourseDetails({
       <CardHeader className="pb-2">
         <div className="flex items-center gap-2">
           <Zap className="h-5 w-5 text-orange-500" />
-          <span className="font-medium text-xl">{title}</span>
+          <span className="font-medium text-red-600 text-xl">{title}</span>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
