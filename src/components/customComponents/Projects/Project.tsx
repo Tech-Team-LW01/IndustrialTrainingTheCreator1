@@ -126,14 +126,14 @@ export default function GitiProjects(): JSX.Element {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className=" bg-black flex items-center justify-center">
         <div className="text-white text-xl">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="relative bg-black">
+    <div className="relative bg-black ">
       <div className="w-full text-center py-4" id="#Projects">
         <h1 className={`text-3xl md:text-4xl mt-4 text-[#ff0000] ${khandFont.className}`}>
           Unique Summer Projects
