@@ -140,9 +140,9 @@ export function ApplicationForm() {
       <Toaster position="top-center" reverseOrder={false} />
       
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-red-600">Summer Application Form</h1>
+        <h1 className="text-2xl font-bold text-red-600">Summer Industrial Training Application Form</h1>
         <p className="text-sm text-red-600">
-          BECOME A PART OF ONE & ONLY RESEARCH BASED THE SUMMER PROGRAM OF INDIA
+          BECOME A PART OF ONE & ONLY RESEARCH BASED THE SUMMER INDUSTRIAL TRAINING PROGRAM OF INDIA
         </p>
       </div>
 
