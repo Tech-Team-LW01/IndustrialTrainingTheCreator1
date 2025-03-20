@@ -9,18 +9,18 @@ const poppins = Poppins({
 });
 
 const technologies = [
-  { name: "Machine Learning", image:"/assets/TechStackLogo/8618881.png", category: "AI/ML" },
-  { name: "Cloud Computing", image:"/assets/TechStackLogo/cloud computing.png", category: "Cloud" },
-  { name: "Python Programming", image: "/assets/TechStackLogo/Python-Emblem.png", category: "Programming" },
-  { name: "RedHat Linux", image:"/assets/TechStackLogo/linux7.png", category: "OS" },
-  { name: "App Development", image: "/assets/TechStackLogo/mobile.png", category: "Development" },
-  { name: "FullStack", image:"/assets/TechStackLogo/11096817.png", category: "Web Dev" },
-  { name: "GenerativeAI", image:"/assets/TechStackLogo/ChatGPT-Logo.svg.png", category: "AI" },
-  { name: "DevOps", image:"/assets/TechStackLogo/devops.png", category: "Automation" },
-  { name: "Blockchain", image: "/assets/TechStackLogo/blockchain.png", category: "Security" },
-  { name: "MetaVerse", image: "/assets/TechStackLogo/10551606.png", category: "Virtual" },
-  { name: "Web 3.0", image:"/assets/TechStackLogo/web3.0.png", category: "Next-Gen Web" },
-  { name: "IoT", image:"/assets/TechStackLogo/IOT.png", category: "Connectivity" },
+  { name: "Machine Learning", image:"/assets/TechStackLogo/new/1.png", category: "AI/ML" },
+  { name: "Cloud Computing", image:"/assets/TechStackLogo/new/2.png", category: "Cloud" },
+  { name: "Python Programming", image: "/assets/TechStackLogo/new/3.png", category: "Programming" },
+  { name: "RedHat Linux", image:"/assets/TechStackLogo/new/4.png", category: "OS" },
+  { name: "App Development", image: "/assets/TechStackLogo/new/5.png", category: "Development" },
+  { name: "FullStack", image:"/assets/TechStackLogo/new/6.png", category: "Web Dev" },
+  { name: "GenerativeAI", image:"/assets/TechStackLogo/new/7.png", category: "AI" },
+  { name: "DevOps", image:"/assets/TechStackLogo/new/8.png", category: "Automation" },
+  { name: "Blockchain", image: "/assets/TechStackLogo/new/9.png", category: "Security" },
+  // { name: "MetaVerse", image: "/assets/TechStackLogo/new/10.png", category: "Virtual" },
+  // { name: "Web 3.0", image:"/assets/TechStackLogo/new/11", category: "Next-Gen Web" },
+  // { name: "IoT", image:"/assets/TechStackLogo/IOT.png", category: "Connectivity" },
 ];
 
 const container = {
@@ -47,14 +47,14 @@ export default function TechStack() {
         </div>
 
         <motion.div
-          className="grid grid-cols-3  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 md:gap-x-12 gap-x-6 gap-y-4 w-full"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 w-full"
           variants={container}
           initial="hidden"
           animate="show"
         >
           {technologies.map((tech) => (
             <motion.div key={tech.name} variants={item}>
-              {/* todo give some horizontal space between cards,  */}
+              {/* todo I want to show only 5 cards in a row  */}
               <Card className="group  relative flex flex-col items-center bg-white justify-center w-24 h-24 space-y-2 overflow-hidden p-2 text-white rounded-lg shadow-lg hover:shadow-xl transition">
                 <div className="relative flex items-center justify-center w-16 h-16">
                   <img
@@ -63,7 +63,7 @@ export default function TechStack() {
                     className="w-full h-full object-contain transition-transform group-hover:scale-110"
                   />
                 </div>
-                <p className="text-xs font-medium text-center text-black">{tech.name}</p>
+                {/* <p className="text-xs font-medium text-center text-black">{tech.name}</p> */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
                   <p className="text-black text-[10px] font-semibold">{tech.category}</p>
                 </div>

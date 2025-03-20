@@ -44,7 +44,7 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <WhatsAppBot/>
-        <Footer/>
+        {/* <Footer/> */}
         <Footer3/>
         {/* <Footer2/> */}
         </div>

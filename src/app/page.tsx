@@ -3,7 +3,7 @@
 // import {Demo} from "../components/customComponents/Hero/IndiaMap"
 import Hero from "@/components/customComponents/Hero/Hero";
 import TechStack from "@/components/customComponents/Technology/Technology";
-import {TopLeaders} from "@/components/customComponents/TopLeaders/TopLeaders";
+// import {TopLeaders} from "@/components/customComponents/TopLeaders/TopLeaders";
 import {LeftRightAlumniCarousel} from "@/components/customComponents/CompaniesCarousel/CompaniesCarousel"; import Projets from "@/components/customComponents/Projects/Project";
 import {OutCome}  from "@/components/customComponents/OutCome/OutCome";
 import VideoTestimonials from "@/components/customComponents/Testimonials/VideoTestimonials";
@@ -49,13 +49,13 @@ export default function Home() {
 <Hero2></Hero2>
 <TechStack/>
 {/* <RecapPreviousYear /> */}
-
+<Projets/>
 <Mentor/>
 <MentorScroll/>
 <Awards/>
-<TopLeaders/>
+{/* <TopLeaders/> */}
 <Community/>
-<Projets/>
+
 <Map/>
 {/* <Gallery/> */}
 <BentoGallery/>
