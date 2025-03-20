@@ -26,7 +26,7 @@ const Hero2 = () => {
         <div className=" h-full mx-auto w-full">
      <div className="relative max-w-full h-full mx-auto">
   {/* Button Container - fixed position using percentages */}
-  <div className="absolute left-[4%] top-[72%] z-10">
+  {/* <div className="absolute left-[4%] top-[72%] z-10">
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -40,11 +40,11 @@ const Hero2 = () => {
 </Link>
 
     </motion.div>
-  </div>
+  </div> */}
   
   {/* Image */}
   {/* This is just a image, for Desktip  */}
-  <img className="w-full h-full mx-auto hidden md:block lg:block" src="/assets/Hero/hero-section-2.png" alt="Hero" />
+  <img className="w-full h-full mx-auto hidden md:block lg:block" src="/assets/Hero/hero-section.jpg" alt="Hero" />
 
   {/* Hero section for mobile */}
 
@@ -55,7 +55,9 @@ const Hero2 = () => {
       <img src="/assets/MobileHero.png  " ></img>
 
     </div>
-  <div className="h-full flex mt-2 items-center justify-center bg-black text-white px-4 ">
+
+
+  {/* <div className="h-full flex mt-2 items-center justify-center bg-black text-white px-4 ">
       <div className="max-w-4xl mx-auto text-center ">
         <h1 className="text-4xl text-[#ff0000] md:text-6xl font-extrabold leading-tight tracking-tighter ">
           Summer Internship 2025
@@ -64,11 +66,7 @@ const Hero2 = () => {
         <h3 className="text-xl md:text-3xl font-medium ">For Engineering Students</h3>
         <p className="text-lg  md:text-xl text-gray-300 mb-[12px]">(Open for B.Tech | M.Tech | BCA | MCA | B.Sc IT)</p>
 <div>
-  {/* <a href="/application-form">
-        <Button variant="destructive" size="lg" className="text-lg bg-[#ff0000] px-8 py-6 rounded-md font-semibold">
-          Applications Open
-        </Button>
-        </a> */}
+ 
          
      <Link
   href="/application-form"
@@ -78,7 +76,7 @@ const Hero2 = () => {
 </Link>
         </div>
       </div>
-    </div>
+    </div> */}
 
 
 
@@ -87,8 +85,8 @@ const Hero2 = () => {
 
 </div>
 
-            {/* strip */}
-            <div className="relative mt-4 md:-mt-12 lg:-mt-4 z-30">
+           
+            {/* <div className="relative mt-4 md:-mt-12 lg:-mt-4 z-30">
               <div className="md:hidden p-4 w-full">
                 <h1 className="text-3xl text-center text-bold text-[#ff0000]">Details of Summer Program</h1>
               </div>
@@ -97,7 +95,7 @@ const Hero2 = () => {
       
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6 w-full">
         
-        {/* Admission Section */}
+
         <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
           <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
             <BsCalendarCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
@@ -115,7 +113,7 @@ const Hero2 = () => {
           </div>
         </div>
 
-        {/* Duration Section */}
+      
         <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
           <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
             <AiOutlineHourglass className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
@@ -130,7 +128,7 @@ const Hero2 = () => {
           </div>
         </div>
 
-        {/* Internship Section */}
+      
         <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
           <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
             <Album className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
@@ -145,7 +143,7 @@ const Hero2 = () => {
           </div>
         </div>
 
-        {/* Training Certificate Section */}
+        
         <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
           <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
             <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
@@ -161,7 +159,7 @@ const Hero2 = () => {
         </div>
       </div>
 
-      {/* Button Section */}
+   
       <div className="flex items-center justify-center lg:border-l lg:pl-6 w-full lg:w-auto mt-2 sm:mt-4 md:mt-6 lg:mt-0">
         <div className="flex  flex-col items-center justify-center w-full lg:w-auto">
           <Link href="/application-form" rel="noopener noreferrer" className="w-full flex justify-center">
@@ -176,7 +174,7 @@ const Hero2 = () => {
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
 
 
