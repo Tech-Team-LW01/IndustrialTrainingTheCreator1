@@ -18,7 +18,7 @@ const khandFont = Khand({
 })
 const Map = () => {
   return (
-    <section className=" max-w-6xl mx-auto ">
+    <section className=" max-w-6xl pt-8 mx-auto ">
       <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-0">
 <div className="bg-black h-full pb-0 lg:p-10 space-y-6">
             {/* Decorative background elements */}
