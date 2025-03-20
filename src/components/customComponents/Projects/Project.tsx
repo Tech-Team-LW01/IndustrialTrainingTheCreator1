@@ -1,16 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -133,13 +122,13 @@ export default function GitiProjects(): JSX.Element {
   }
 
   return (
-    <div className="relative bg-black ">
+    <div className="relative bg-black " id="Projects">
       <div className="w-full text-center py-4" id="#Projects">
         <h1 className={`text-3xl md:text-4xl mt-4 text-[#ff0000] ${khandFont.className}`}>
-          Unique Summer Projects
+        4-6 Week Summer Training with a Live Project
         </h1>
         <p className={`text-white text-sm md:text-lg ${poppins.className}`}>
-          Learn & Develop a Level Of Project Which You Can't Find Anywhere – Internet / Google / Chatgpt
+        Learn from the basics with 100% practical implementation.
         </p>
       </div>
 
