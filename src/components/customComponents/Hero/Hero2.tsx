@@ -52,7 +52,7 @@ const Hero2 = () => {
 
     {/* Image  */}
     <div  className="mb-2">
-      <img src="/assets/MobileHero.png  " ></img>
+      <img src="/assets/Hero/hero-section.jpg" ></img>
 
     </div>
 
