@@ -1,185 +1,221 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-// import { IndiaMap } from "@/components/ui/India-map";
-import { Badge } from "@/components/ui/badge"
-import { motion } from 'framer-motion';
-// import { MdOnlinePrediction } from "react-icons/md"
-import { BsCalendarCheck } from "react-icons/bs"
-import { AiOutlineHourglass } from "react-icons/ai"
-// import { HiShieldCheck } from "react-icons/hi2"
-import { Album ,ShieldCheck} from "lucide-react";
-import Link from "next/link";
-import { Inter, Poppins } from 'next/font/google';
+import { Input } from "@/components/ui/input";
+import { Loader2 } from "lucide-react";
 
-const poppins = Poppins({
-   subsets: ['latin'],
-   weight: ['400']
-});
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  college: string;
+  query: string;
+}
 
-import localFont from "next/font/local";
-const khandFont = localFont({
-    src: '../../../app/fonts/Khand-SemiBold.woff',
-    weight: '100 900',
-});
-const Hero2 = () => {    
-    return (
-        <div className=" h-full mx-auto w-full">
-     <div className="relative max-w-full h-full mx-auto">
-  {/* Button Container - fixed position using percentages */}
-  {/* <div className="absolute left-[4%] top-[72%] z-10">
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-     
-     <Link
-  href="/application-form"
-  className="bg-[#ff0000] hidden md:block p-1 text-sm md:p-2 md:text-lg rounded-sm pr-4 text-white hover:bg-red-800 font-semibold relative z-10 shadow-lg"
->
-  Applications Open
-</Link>
+const Hero2 = () => {   
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    fullName: "",
+    email: "",
+    phone: "",
+    college: "",
+    query: ""
+  });
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-    </motion.div>
-  </div> */}
-  
-  {/* Image */}
-  {/* This is just a image, for Desktip  */}
-  <img className="w-full h-full mx-auto hidden md:block lg:block" src="/assets/Hero/hero-section.jpg" alt="Hero" />
-
-  {/* Hero section for mobile */}
-
-  <div className=" grid grid-row-2 md:hidden lg:hidden sm:block">
-
-    {/* Image  */}
-    <div  className="mb-2">
-      <img src="/assets/Hero/hero-section.jpg" ></img>
-
-    </div>
-
-
-  {/* <div className="h-full flex mt-2 items-center justify-center bg-black text-white px-4 ">
-      <div className="max-w-4xl mx-auto text-center ">
-        <h1 className="text-4xl text-[#ff0000] md:text-6xl font-extrabold leading-tight tracking-tighter ">
-          Summer Internship 2025
-        </h1>
-        <h2 className="text-3xl md:text-5xl font-bold ">Industrial Training Program</h2>
-        <h3 className="text-xl md:text-3xl font-medium ">For Engineering Students</h3>
-        <p className="text-lg  md:text-xl text-gray-300 mb-[12px]">(Open for B.Tech | M.Tech | BCA | MCA | B.Sc IT)</p>
-<div>
- 
-         
-     <Link
-  href="/application-form"
-  className="bg-[#ff0000]  p-1 text-sm md:p-2 md:text-lg rounded-sm pr-4 text-white hover:bg-red-800 font-semibold relative z-10 shadow-lg"
->
-  Applications Open
-</Link>
-        </div>
-      </div>
-    </div> */}
-
-
-
+  const validateForm = (): boolean => {
+    const newErrors: Partial<FormData> = {};
     
-  </div>
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone number must be 10 digits";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-</div>
+  const handleSubmit = async () => {
+    if (!validateForm()) return;
+    
+    setLoading(true);
+    setSubmitStatus("idle");
+    
+    try {
+      // Replace with your actual API endpoint
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-           
-            {/* <div className="relative mt-4 md:-mt-12 lg:-mt-4 z-30">
-              <div className="md:hidden p-4 w-full">
-                <h1 className="text-3xl text-center text-bold text-[#ff0000]">Details of Summer Program</h1>
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      const data = await response.json();
+      console.log('Form submitted successfully:', data);
+      setSubmitStatus("success");
+      
+      // Reset form after successful submission
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        college: "",
+        query: ""
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user types
+    if (errors[name as keyof FormData]) {
+      setErrors(prev => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  return (
+    <div className="h-full mx-auto w-full">
+      {/* Desktop Layout */}
+      <div className="hidden md:flex lg:flex w-full">
+        {/* Left side - Hero Image */}
+        <div className="w-2/3">
+          <img className="w-full h-full object-cover" src="/assets/Hero/hero-section.jpg" alt="Hero" />
+        </div>
+        
+        {/* Right side - Form */}
+        <div className="w-1/3 flex items-center justify-center pr-8">
+          <div className="bg-black border-2 border-white p-6 rounded-lg shadow-lg w-full">
+            <h2 className="text-2xl mb-4 text-center text-white">Contact Us</h2>
+            
+            {submitStatus === "success" && (
+              <div className="mb-4 p-2 bg-green-100 text-green-800 rounded">
+                Thank you! Your query has been submitted.
               </div>
-  <div className="md:bg-black rounded-lg p-3 sm:p-5 md:p-6 shadow-lg max-w-xs sm:max-w-md md:max-w-lg lg:max-w-6xl md:border md:border-white mx-auto">
-    <div className="flex flex-col lg:flex-row justify-between items-start gap-3 sm:gap-5 md:gap-6">
-      
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6 w-full">
-        
-
-        <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
-          <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
-            <BsCalendarCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
-          </div>
-          <div className="flex flex-col flex-grow min-w-0">
-            <span className={`text-[#ff0000] text-[11px] sm:text-xs md:text-sm font-medium uppercase tracking-wide ${khandFont.className}`}>
-              TENTATIVE START DATES
-            </span>
-            <span className={`font-bold text-[7px] sm:text-xs md:text-sm text-white mt-1  ${poppins.className}`}>
-              May 2025 / June 2025 <br className="md:hidden"></br> / July 2025
-            </span>
-            <Badge variant="outline" className="text-[#ff0000] border-red-200 text-[7px] sm:text-[9px] md:text-[10px] mt-2 w-fit">
-              Limited seats
-            </Badge>
-          </div>
-        </div>
-
-      
-        <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
-          <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
-            <AiOutlineHourglass className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
-          </div>
-          <div className="flex flex-col flex-grow min-w-0">
-            <span className={`text-[#ff0000] text-[11px] sm:text-xs md:text-sm font-medium uppercase tracking-wide ${khandFont.className}`}>
-              DURATION SUMMER PROGRAM
-            </span>
-            <span className={`font-bold text-[7px] sm:text-xs md:text-sm text-white mt-1 ${poppins.className}`}>
-              6 weeks / 8 weeks
-            </span>
-          </div>
-        </div>
-
-      
-        <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
-          <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
-            <Album className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
-          </div>
-          <div className="flex flex-col flex-grow min-w-0">
-            <span className={`text-[#ff0000] text-[11px] sm:text-xs md:text-sm font-medium uppercase tracking-wide ${khandFont.className}`}>
-              Internship
-            </span>
-            <span className={`font-bold text-[7px] sm:text-xs md:text-sm text-white mt-1 ${poppins.className}`}>
-              Industry Recognised Internship (Project) Certificate
-            </span>
-          </div>
-        </div>
-
-        
-        <div className="flex items-start gap-2 justify-start min-w-[150px] sm:min-w-[220px] md:min-w-[250px]">
-          <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-red-50 rounded-lg">
-            <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#ff0000]" />
-          </div>
-          <div className="flex flex-col flex-grow min-w-0">
-            <span className={`text-[#ff0000] text-[11px] sm:text-xs md:text-sm font-medium uppercase tracking-wide ${khandFont.className}`}>
-              Training Certificate
-            </span>
-            <span className={`font-bold text-[7px] sm:text-xs md:text-sm text-white mt-1 ${poppins.className}`}>
-              Training Certificate from <br></br> LinuxWorld Informatics Pvt Ltd
-            </span>
+            )}
+            
+            {submitStatus === "error" && (
+              <div className="mb-4 p-2 bg-red-100 text-red-800 rounded">
+                Error submitting form. Please try again.
+              </div>
+            )}
+            
+            {/* Replaced form with div */}
+            <div className="space-y-3">
+              <div>
+                <Input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white"
+                  aria-label="Full Name"
+                />
+                {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+              </div>
+              
+              <div>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white"
+                  aria-label="Email Address"
+                />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              </div>
+              
+              <div>
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                  maxLength={10}
+                  className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white"
+                  aria-label="Phone Number"
+                />
+                {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+              </div>
+              
+              <Input
+                type="text"
+                name="college"
+                placeholder="College Name"
+                value={formData.college}
+                onChange={handleInputChange}
+                disabled={loading}
+                className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white"
+                aria-label="College Name"
+              />
+              
+              <Input
+                type="text"
+                name="query"
+                placeholder="Your Query"
+                value={formData.query}
+                onChange={handleInputChange}
+                disabled={loading}
+                className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white min-h-[80px]"
+                aria-label="Your Query"
+              />
+              
+              <Button 
+                onClick={handleSubmit}
+                disabled={loading}
+                className="w-full bg-red-600 hover:bg-red-700 text-white hover:cursor-pointer border border-white"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  'Submit Query'
+                )}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-
-   
-      <div className="flex items-center justify-center lg:border-l lg:pl-6 w-full lg:w-auto mt-2 sm:mt-4 md:mt-6 lg:mt-0">
-        <div className="flex  flex-col items-center justify-center w-full lg:w-auto">
-          <Link href="/application-form" rel="noopener noreferrer" className="w-full flex justify-center">
-            <Button
-              className={`bg-[#ff0000] font-semibold text-xs sm:text-sm py-3 px-5 sm:py-4 sm:px-6 md:py-6 md:px-8 hover:bg-[#ff0000]/90 hover:shadow-lg transition-all duration-300  font-semibold `}
-              size="lg"
-              >
-              Apply Now
-            </Button>
-          </Link>
+      
+      {/* Mobile Layout */}
+      <div className="grid grid-row-2 md:hidden lg:hidden sm:block">
+        <div className="mb-2">
+          <img src="/assets/Hero/hero-section.jpg" alt="Hero" />
         </div>
       </div>
     </div>
-  </div>
-</div> */}
-
-
-
-        </div>
-    );
+  );
 };
 
 export default Hero2;
