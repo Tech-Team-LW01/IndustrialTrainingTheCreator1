@@ -92,10 +92,10 @@ export default function GitiProjects(): JSX.Element {
       >
         {isEven ? (
           <>
-            <div className="md:order-1 order-2 overflow-x-auto overflow-hidden md:overflow-x-visible flex flex-col justify-center">
+            <div className="md:order-1 order-2 flex flex-col justify-center">
               {renderProjectContent(project)}
             </div>
-            <div className="md:order-2 order-1 overflow-hidden overflow-x-auto md:overflow-x-visible flex items-center justify-center">
+            <div className="md:order-2 order-1 flex items-center justify-center">
               {renderImageContent(project)}
             </div>
           </>

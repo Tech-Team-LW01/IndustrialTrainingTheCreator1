@@ -117,7 +117,7 @@ const Hero2 = () => {
             )}
             
             {submitStatus === "error" && (
-              <div className="mb-4 p-2 bg-red-100 text-red-800 rounded">
+              <div className="mb-4 p-2 bg-[#ff0000] text-[#ff0000] rounded">
                 Error submitting form. Please try again.
               </div>
             )}
@@ -192,7 +192,7 @@ const Hero2 = () => {
               <Button 
                 onClick={handleSubmit}
                 disabled={loading}
-                className="w-full bg-red-600 hover:bg-red-700 text-white hover:cursor-pointer border border-white"
+                className="w-full bg-[#ff0000] hover:bg-[#ff0000] text-white hover:cursor-pointer border border-white"
               >
                 {loading ? (
                   <>
