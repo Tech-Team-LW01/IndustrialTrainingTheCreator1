@@ -184,7 +184,7 @@ const Hero2 = () => {
               <Button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="w-full bg-red-600 hover:bg-red-900 text-white hover:cursor-pointer border border-white"
+                className="w-full bg-red-600 hover:bg-red-700 text-white hover:cursor-pointer border border-white"
               >
                 {loading ? (
                   <>
