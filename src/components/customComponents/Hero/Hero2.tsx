@@ -49,7 +49,7 @@ const Hero2 = () => {
     setSubmitStatus("idle");
 
     try {
-      const response = await fetch('/api/submit-form', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ const Hero2 = () => {
         </div>
 
         <div className="w-1/3 flex items-center justify-center pr-8">
-          <div className="bg-black border-2 border-white p-6 rounded-lg shadow-lg w-full">
+          <div className="bg-black border-2 border-white p-6 rounded-lg shadow-lg w-full relative z-10">
             <h2 className="text-2xl mb-4 text-center text-white">Contact Us</h2>
 
             {submitStatus === "success" && (
