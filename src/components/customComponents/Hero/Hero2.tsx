@@ -11,7 +11,7 @@ interface FormData {
   query: string;
 }
 
-const Hero2 = () => {   
+const Hero2 = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
@@ -25,7 +25,7 @@ const Hero2 = () => {
 
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
-    
+
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -37,20 +37,19 @@ const Hero2 = () => {
     } else if (!/^\d{10}$/.test(formData.phone)) {
       newErrors.phone = "Phone number must be 10 digits";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async () => {
     if (!validateForm()) return;
-    
+
     setLoading(true);
     setSubmitStatus("idle");
-    
+
     try {
-      // Replace with your actual API endpoint
-      const response = await fetch('/api/submit-form', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,8 +64,7 @@ const Hero2 = () => {
       const data = await response.json();
       console.log('Form submitted successfully:', data);
       setSubmitStatus("success");
-      
-      // Reset form after successful submission
+
       setFormData({
         fullName: "",
         email: "",
@@ -83,14 +81,12 @@ const Hero2 = () => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-    
-    // Clear error when user types
+
     if (errors[name as keyof FormData]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
@@ -98,31 +94,27 @@ const Hero2 = () => {
 
   return (
     <div className="h-full mx-auto w-full">
-      {/* Desktop Layout */}
       <div className="hidden md:flex lg:flex w-full">
-        {/* Left side - Hero Image */}
         <div className="w-2/3">
           <img className="w-full h-full object-cover" src="/assets/Hero/hero-section.jpg" alt="Hero" />
         </div>
-        
-        {/* Right side - Form */}
+
         <div className="w-1/3 flex items-center justify-center pr-8">
-          <div className="bg-black border-2 border-white p-6 rounded-lg shadow-lg w-full">
+          <div className="bg-black border-2 border-white p-6 rounded-lg shadow-lg w-full relative z-10">
             <h2 className="text-2xl mb-4 text-center text-white">Contact Us</h2>
-            
+
             {submitStatus === "success" && (
               <div className="mb-4 p-2 bg-green-100 text-green-800 rounded">
                 Thank you! Your query has been submitted.
               </div>
             )}
-            
+
             {submitStatus === "error" && (
-              <div className="mb-4 p-2 bg-[#ff0000] text-[#ff0000] rounded">
+              <div className="mb-4 p-2 bg-red-100 text-red-800 rounded">
                 Error submitting form. Please try again.
               </div>
             )}
-            
-            {/* Replaced form with div */}
+
             <div className="space-y-3">
               <div>
                 <Input
@@ -137,7 +129,7 @@ const Hero2 = () => {
                 />
                 {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
               </div>
-              
+
               <div>
                 <Input
                   type="email"
@@ -151,7 +143,7 @@ const Hero2 = () => {
                 />
                 {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
-              
+
               <div>
                 <Input
                   type="tel"
@@ -166,7 +158,7 @@ const Hero2 = () => {
                 />
                 {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
-              
+
               <Input
                 type="text"
                 name="college"
@@ -177,7 +169,7 @@ const Hero2 = () => {
                 className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white"
                 aria-label="College Name"
               />
-              
+
               <Input
                 type="text"
                 name="query"
@@ -188,11 +180,11 @@ const Hero2 = () => {
                 className="w-full bg-black text-white border-white placeholder:text-gray-400 focus:ring-white min-h-[80px]"
                 aria-label="Your Query"
               />
-              
-              <Button 
+
+              <Button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="w-full bg-[#ff0000] hover:bg-red-900 text-white hover:cursor-pointer border border-white"
+                className="w-full bg-red-600 hover:bg-red-500 text-white hover:cursor-pointer border border-white"
               >
                 {loading ? (
                   <>
@@ -207,8 +199,7 @@ const Hero2 = () => {
           </div>
         </div>
       </div>
-      
-      {/* Mobile Layout */}
+
       <div className="grid grid-row-2 md:hidden lg:hidden sm:block">
         <div className="mb-2">
           <img src="/assets/Hero/hero-section.jpg" alt="Hero" />
