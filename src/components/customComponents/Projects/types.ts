@@ -19,6 +19,14 @@ export interface Project {
   price: string;
   projectCode: string;
 }
+interface CourseDetailsProps {
+  title: string;
+  description: string;
+  content: string[];
+  registerLink: string;
+  originalPrice: number;
+  price: number;
+}
 
 // Define the type for the entire data object
 export interface NewData {
