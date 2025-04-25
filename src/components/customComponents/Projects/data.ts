@@ -100,7 +100,7 @@ export const NewData = {
 "Python Data Structures",
 "Arithmetic Operations and Operators",
 "Regular Expressions",
-"Control Structures: Conditional Statements and Loops",
+"Conditionals & Loops",
 "Functions and Arguments",
 "Working with Files and Directories",
 "Python Modules and Packages",
@@ -266,11 +266,15 @@ export const NewData = {
       content: [
         "Data Science with Python",
         "Applied Statistics",
-        "Supervised Learning - Multiple Variable Linear Regression",
-        "Unsupervised Learning - K-means Clustering",
-        "Ensemble Techniques - Decision Trees",
-        "Featurization, Model Selection & Tuning - Feature Engineering",
-        "Recommendation Systems - Introduction to Recommendation Systems",
+        "Linear Regression (Multi)",
+
+        "K-means Clustering",
+        
+        "Decision Trees",
+        
+        "Feature Engineering",
+        
+        "Recommendation Systems",
         "Web Development Concepts",
         "HTML",
         "CSS",
