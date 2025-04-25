@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BentoGrid } from "react-bento";
 import { motion, AnimatePresence } from "framer-motion";
-import { Inter,Poppins } from 'next/font/google'
+import { Inter, Poppins } from 'next/font/google'
 import MobileGallery from "./MobileGallery"
 const poppins = Poppins({
    subsets: ['latin'],
@@ -193,41 +193,41 @@ const BentoGallery: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto md:min-h-screen sm:min-h-full mb-20 md:mb-0   bg-black p-0">
+    <div className="w-full max-w-7xl mx-auto md:min-h-screen sm:min-h-full pb-20 md:pb-4 md:mb-10 bg-black">
       {/* Main Heading */}
-      <div className="w-full text-center py-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#ff0000] " id="Preivous" > Previous Summer 2024</h1>
+      <div className="w-full text-center py-2">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#ff0000]" id="Preivous"> Previous Summer 2024</h1>
         <p className={`text-white text-sm md:text-3xl ${poppins.className}`}>See How Engineering Students From Across Indias Are Learning Together</p>
       </div>
 
-      {/* Bento Grid  for desktop*/} 
+      {/* Bento Grid for desktop */} 
       <div className="hidden md:block">
-      <BentoGrid
-        items={bentoItems.map((item) => ({
-          ...item,
-          element: (
-            <ImageCycler
-              images={item.images}
-              interval={item.interval}
-              transitionDuration={item.transitionDuration}
-            />
-          ),
-        }))}
-        gridCols={8}
-        rowHeight={80}
-        classNames={{
-          container: "max-w-full mx-auto gap-2",
-          elementContainer:
-            "bg-white rounded-none gap-0 p-1 gap-2  overflow-hidden hover:opacity-90 transition-opacity duration-300",
-        }}
-      />
-</div>
+        <BentoGrid
+          items={bentoItems.map((item) => ({
+            ...item,
+            element: (
+              <ImageCycler
+                images={item.images}
+                interval={item.interval}
+                transitionDuration={item.transitionDuration}
+              />
+            ),
+          }))}
+          gridCols={8}
+          rowHeight={80}
+          classNames={{
+            container: "max-w-full mx-auto gap-2",
+            elementContainer:
+              "bg-white rounded-none gap-0 p-1 gap-2 overflow-hidden hover:opacity-90 transition-opacity duration-300",
+          }}
+        />
+      </div>
 
-{/* for mobile */}
+      {/* For mobile - Added pt-8 for top padding or pb-8 for bottom padding */}
+      <div className="md:hidden sm:block pt-8 pb-8">
+        <MobileGallery/>
+      </div>
 
-<div className="md:hidden sm:block">
-  <MobileGallery/>
-</div>
       {/* Global Styles */}
       <style jsx global>{`
         .bento-item {
@@ -264,4 +264,3 @@ const BentoGallery: React.FC = () => {
 };
 
 export default BentoGallery;
-
