@@ -347,7 +347,7 @@ export function ApplicationForm() {
                   <SelectContent>
                     <SelectItem value="may2025">26 May 2025</SelectItem>
                 <SelectItem value="june2025">2 June 2025</SelectItem>
-                <SelectItem value="july2025">15 June 2025</SelectItem>
+                <SelectItem value="july2025">16 June 2025</SelectItem>
                 <SelectItem value="july2025">23 June 2025</SelectItem>
                   </SelectContent>
                 </Select>
